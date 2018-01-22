@@ -50,8 +50,27 @@ public class AsyncLearningOrchestrator {
 
 		final OrchestratorResponse response = new OrchestratorResponse();
 
-		final CountDownLatch outerLatch = new CountDownLatch(1);
+		final CountDownLatch outerLatch = new CountDownLatch(2);
 		final Queue<String> errors = new ConcurrentLinkedQueue<>();
+
+		// Obtain courses in which user is enrolled.
+		courseTarget.path("enrolled").request()
+                // Async invoker.
+                .async()
+                // Return a list of courses
+                .get(new InvocationCallback<List<Course>>() {
+                    @Override
+                    public void completed(final List<Course> courses) {
+                        response.setEnrolled(courses);
+                        outerLatch.countDown();
+                    }
+
+                    @Override
+                    public void failed(final Throwable throwable) {
+                        errors.offer("Enrolled: " + throwable.getMessage());
+                        outerLatch.countDown();
+                    }
+                });
 
 		courseTarget.path("recommended")
 					.request()

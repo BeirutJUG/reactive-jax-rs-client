@@ -36,14 +36,12 @@ public class SyncLearningOrchestrator {
 
 		OrchestratorResponse response = new OrchestratorResponse();
 		
-		List<Course> enrolledCourses = courseTarget.path("courses")
+		List<Course> enrolledCourses = courseTarget.path("enrolled")
 				.request()
-				.header("Rx-User", "Sync")
 				.get(new GenericType<List<Course>>() {});
 
 		List<Course> recommendedCourses = courseTarget.path("recommended")
 					.request()
-					.header("Rx-User", "Sync")
 					.get(new GenericType<List<Course>>() {});
 
 

@@ -8,12 +8,12 @@ public class OrchestratorResponse {
 	private List<Course> enrolled = new ArrayList<>();
 	private List<CourseRecommendation> recommended = new ArrayList<>();
 	private long processingTime;
-	private List<String> errors;
+	private List<String> errors = new ArrayList<>();
 
 	public OrchestratorResponse() {
 	}
 
-	
+
 	public List<Course> getEnrolled() {
 		return enrolled;
 	}

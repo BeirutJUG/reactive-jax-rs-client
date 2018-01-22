@@ -48,7 +48,7 @@ public class CompletionStageLearningOrchestrator {
 
     @GET
     public void completion(@Suspended final AsyncResponse async) {
-    	final long time = System.nanoTime();
+        final long time = System.nanoTime();
         
         final Queue<String> errors = new ConcurrentLinkedQueue<>();
         
@@ -63,7 +63,7 @@ public class CompletionStageLearningOrchestrator {
     }
     
     private CompletionStage<List<Course>> enrolled(final Queue<String> errors) {
-		return courseTarget.path("courses")
+		return courseTarget.path("enrolled")
 				.request()
 				.rx() //default reactive invoker: CompletionStageRxInvoker
 				.get(new GenericType<List<Course>>() {})

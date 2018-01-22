@@ -70,7 +70,7 @@ public class FlowableLearningOrchestrator {
     }
     
     private Flowable<List<Course>> enrolled(final Queue<String> errors) {
-		return courseTarget.path("courses")
+		return courseTarget.path("enrolled")
 				.request()
 				.rx(RxFlowableInvoker.class)
 				.get(new GenericType<List<Course>>() {})

@@ -20,7 +20,7 @@ public class Helper {
         COURSES.add(new Course(3, "FP / Haskel", "Functional programming in Haskel", 13, 25));
         COURSES.add(new Course(4, "Apache Spark", "Data analytics cluster-computing framework", 9, 20));
         COURSES.add(new Course(5, "OpenCV", "Image processing using OpenCV", 8, 15));
-        COURSES.add(new Course(5, "JVM Memory Management", "Guide to JVM memory management", 11, 35));
+        COURSES.add(new Course(6, "JVM Memory Management", "Guide to JVM memory management", 11, 35));
 
         TUTORS.add(new Tutor(1, "Roger Patrick", 4.7d));
         TUTORS.add(new Tutor(6, "Sean Dean", 4d));

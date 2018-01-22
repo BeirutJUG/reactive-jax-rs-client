@@ -23,7 +23,7 @@ public class CourseResource {
 	}
 
 	@GET
-	@Path("/courses")
+	@Path("/enrolled")
 	public List<Course> enrolled(@HeaderParam("Rx-User") @DefaultValue("KO") final String user) {
 		Helper.simulateDelay();
 
